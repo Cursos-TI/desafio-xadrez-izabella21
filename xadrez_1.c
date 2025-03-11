@@ -1,47 +1,53 @@
 #include <stdio.h>
 
+// Função recursiva para mover a Torre
+void moverTorre(int casas) {
+    if (casas == 0) return;
+    printf("Direita\n");
+    moverTorre(casas - 1);
+}
+
+// Função recursiva para mover o Bispo
+void moverBispo(int casas) {
+    if (casas == 0) return;
+    printf("Cima, Direita\n");
+    moverBispo(casas - 1);
+}
+
+// Função recursiva para mover a Rainha
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
+
 int main() {
-    int i;
-    
-    // Movimento da Torre: 5 casas para a direita (utilizando for)
+    // Movimento da Torre: 5 casas para a direita (recursividade)
     printf("Movimento da Torre:\n");
-    for (i = 0; i < 5; i++) {
-        printf("Direita\n");
-    }
+    moverTorre(5);
     printf("\n");
     
-    // Movimento do Bispo: 5 casas na diagonal para cima e à direita (utilizando while)
+    // Movimento do Bispo: 5 casas na diagonal para cima e à direita (recursividade)
     printf("Movimento do Bispo:\n");
-    i = 0;
-    while (i < 5) {
-        printf("Cima, Direita\n");
-        i++;
-    }
+    moverBispo(5);
     printf("\n");
     
-    // Movimento da Rainha: 8 casas para a esquerda (utilizando do-while)
+    // Movimento da Rainha: 8 casas para a esquerda (recursividade)
     printf("Movimento da Rainha:\n");
-    i = 0;
-    do {
-        printf("Esquerda\n");
-        i++;
-    } while (i < 8);
-    
+    moverRainha(8);
     printf("\n");
     
-    // Movimento do Cavalo: 2 casas para baixo e 1 para a esquerda (utilizando loops aninhados)
+    // Movimento do Cavalo: 2 casas para cima e 1 para a direita (loops aninhados)
     printf("Movimento do Cavalo:\n");
-    int movimentosBaixo = 2;
-    int movimentosEsquerda = 1;
+    int movimentosCima = 2;
+    int movimentosDireita = 1;
     
-    for (i = 0; i < movimentosBaixo; i++) {
-        printf("Baixo\n");
+    for (int i = 0; i < movimentosCima; i++) {
+        printf("Cima\n");
     }
     
-    int j = 0;
-    while (j < movimentosEsquerda) {
-        printf("Esquerda\n");
-        j++;
+    for (int j = 0; j < movimentosDireita; j++) {
+        printf("Direita\n");
     }
     
     return 0;
